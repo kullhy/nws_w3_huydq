@@ -1,4 +1,4 @@
-package com.example.nws_w4_2_huydq
+package com.example.nws_w3_huydq
 
 import io.flutter.embedding.android.FlutterActivity
 

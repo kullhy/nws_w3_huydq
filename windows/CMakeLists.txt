@@ -1,10 +1,10 @@
 # Project-level configuration.
 cmake_minimum_required(VERSION 3.14)
-project(nws_w4_2_huydq LANGUAGES CXX)
+project(nws_w3_huydq LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "nws_w4_2_huydq")
+set(BINARY_NAME "nws_w3_huydq")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.
