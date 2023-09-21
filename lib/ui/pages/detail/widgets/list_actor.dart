@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:nws_w3_huydq/common/app_text_styles.dart';
 import 'package:nws_w3_huydq/configs/app_configs.dart';
@@ -14,19 +13,19 @@ class ListActorWidget extends StatefulWidget {
   State<ListActorWidget> createState() => _ListActorWidgetState();
 }
 
-bool isShowAll = false;
-
-List<Actor> takeFirstN<Actor>(List<Actor> list, int n) {
-  if (n >= list.length) {
-    return List<Actor>.from(
-        list); // Trả về toàn bộ danh sách nếu n lớn hơn hoặc bằng chiều dài của danh sách.
-  } else {
-    return list.sublist(0, n); // Trả về danh sách con chứa n phần tử đầu tiên.
-  }
-}
-
 class _ListActorWidgetState extends State<ListActorWidget> {
+  bool isShowAll = false;
   List<Actor> actorsShow = [];
+  List<Actor> takeFirstN<Actor>(List<Actor> list, int n) {
+    if (n >= list.length) {
+      return List<Actor>.from(
+          list); // Trả về toàn bộ danh sách nếu n lớn hơn hoặc bằng chiều dài của danh sách.
+    } else {
+      return list.sublist(
+          0, n); // Trả về danh sách con chứa n phần tử đầu tiên.
+    }
+  }
+
   @override
   void initState() {
     setState(() {
@@ -52,12 +51,12 @@ class _ListActorWidgetState extends State<ListActorWidget> {
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               "Cast",
               style: AppTextStyle.whiteS18Bold,
             ),
-            const Spacer(),
             InkWell(
               onTap: () {
                 showAll();
@@ -72,14 +71,17 @@ class _ListActorWidgetState extends State<ListActorWidget> {
         const SizedBox(
           height: 10,
         ),
-        SizedBox(
-          height: 300,
-          width: double.infinity,
+        Expanded(
           child: GridView.builder(
+            padding: EdgeInsets.zero,
+            itemCount: actorsShow.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4, childAspectRatio: 0.7),
             scrollDirection: Axis.vertical,
-            shrinkWrap: true,
+            // shrinkWrap: true,
             itemBuilder: (context, index) {
               return Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
                     height: 50,
@@ -108,15 +110,11 @@ class _ListActorWidgetState extends State<ListActorWidget> {
                     child: Text(
                       actorsShow[index].role,
                       style: AppTextStyle.whiteS8,
-                  
                     ),
                   )
                 ],
               );
             },
-            itemCount: actorsShow.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4, childAspectRatio: 0.7, mainAxisSpacing: 5),
           ),
         ),
       ],

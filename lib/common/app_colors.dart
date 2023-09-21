@@ -10,12 +10,12 @@ class AppColors {
     ],
     stops: [0.0, 1.0], // Điểm dừng (100%)
   );
-  static const LinearGradient itemBackgroundGadient = LinearGradient(
+  static LinearGradient itemBackgroundGadient = LinearGradient(
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
     colors: [
-      Color.fromARGB(166, 107, 102, 165),
-      Color.fromARGB(155, 111, 150, 155),
+      const Color(0xff6b66a6).withOpacity(0.5),
+      const Color(0xff74d0dd).withOpacity(0.2),
     ],
   );
 

@@ -54,9 +54,10 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => DetailPage(
-                                  movie: movies[index],
-                                )),
+                          builder: (context) => DetailPage(
+                            movie: movies[index],
+                          ),
+                        ),
                       );
                     },
                     child: Padding(
@@ -75,7 +76,26 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                               gradient: AppColors.mostPopular,
                             ),
                           ),
-                          
+                          index != curr
+                              ? Container(
+                                  margin:
+                                      const EdgeInsets.only(top: 0, bottom: 0),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          const Color(0xff64ABDB)
+                                              .withOpacity(0.5),
+                                          const Color(0xff826EC8).withOpacity(0.1)
+                                        ],
+                                        begin: index < curr
+                                            ? Alignment.bottomLeft
+                                            : Alignment.bottomRight,
+                                        end: index < curr
+                                            ? Alignment.topRight
+                                            : Alignment.topLeft,
+                                      )))
+                              : Container()
                         ],
                       ),
                     ),

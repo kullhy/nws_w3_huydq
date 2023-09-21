@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
 class AppTextStyle {
-  static const blue = TextStyle(color: Colors.blue);
+  static const blue = TextStyle(color: Color(0xff9cdbf1));
 
   //s6
   static final blueS12 = blue.copyWith(fontSize: 12);

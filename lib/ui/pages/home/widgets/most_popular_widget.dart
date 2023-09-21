@@ -108,6 +108,7 @@ class _MostPopularWidgetState extends State<MostPopularWidget> {
                                       width: 150,
                                       child: Text(
                                         movies[index].name,
+                                        maxLines: 3,
                                         overflow: TextOverflow.ellipsis,
                                         style: AppTextStyle.whiteS18Bold,
                                       ),
@@ -145,7 +146,7 @@ class _MostPopularWidgetState extends State<MostPopularWidget> {
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(30),
                                         color: const Color.fromARGB(
-                                            91, 255, 255, 255),
+                                            45, 255, 255, 255),
                                       ))
                                   : Container(),
                             ]),

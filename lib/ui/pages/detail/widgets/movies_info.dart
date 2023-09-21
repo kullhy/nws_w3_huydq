@@ -8,50 +8,66 @@ class MoviesInfo extends StatelessWidget {
     super.key,
     required this.genres,
     required this.r,
+    required this.imdb,
   });
   final String genres;
   final String r;
+  final String imdb;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        infoItem(genres),
-        const SizedBox(
-          width: 5,
-        ),
-        infoItem(r),
-        const SizedBox(
-          width: 5,
-        ),
-        Container(
-          width: 75,
-          height: 23,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  spreadRadius: 2,
-                  blurRadius: 2,
-                  offset: const Offset(0, 3), // changes position of shadow
+        Expanded(
+          child: SingleChildScrollView(
+            physics: const ClampingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                infoItem(genres),
+                const SizedBox(
+                  width: 5,
+                ),
+                infoItem(r),
+                const SizedBox(
+                  width: 5,
+                ),
+                Container(
+                  width: 70,
+                  height: 23,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          spreadRadius: 2,
+                          blurRadius: 2,
+                          offset:
+                              const Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                      color: const Color(0xfff5c518)),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SvgPicture.asset(
+                          AppSVGs.icImdb,
+                          height: 23,
+                          width: 25,
+                        ),
+                        Text(
+                          imdb,
+                          style: AppTextStyle.blackS12Bold,
+                        )
+                      ]),
                 ),
               ],
-              color: const Color(0xfff5c518)),
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            SvgPicture.asset(
-              AppSVGs.icImdb,
-              height: 23,
-              width: 30,
             ),
-            Text(
-              "8.5",
-              style: AppTextStyle.blackS12Bold,
-            )
-          ]),
+          ),
         ),
-        const Spacer(),
+        const SizedBox(
+          width: 8,
+        ),
         SvgPicture.asset(
           AppSVGs.isShare,
           width: 24,

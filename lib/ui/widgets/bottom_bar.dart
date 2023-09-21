@@ -28,7 +28,7 @@ Widget createBottomNavigationBar() {
             showSelectedLabels: false,
             currentIndex: state.curIndex,
             onTap: (index) {
-              BlocProvider.of<BottomBarCubit>(context).loadInitialData(index);
+              BlocProvider.of<BottomBarCubit>(context).changeIndex(index);
             },
             showUnselectedLabels: false,
             backgroundColor:
